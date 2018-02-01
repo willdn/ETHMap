@@ -10,15 +10,25 @@
           FAQ<br />
         </h2>
         <h3 class="ui header">
+          What is ETHMap ?
+        </h3>
+        <p>
+          ETHMap is a Decentralized Applications (ÐApps) running on Ethereum blockchain. This means ETHMap don't use a regular database to store
+          the owner of each zone. Instead, zone ownership is recorded on the Ethereum blockchain and thus, cannot be tampered by anyone.
+        </p>
+        <p>
+          You can have a look at the <a target="_blank" href="">Smart Contract</a>.
+        </p>
+        <h3 class="ui header">
           How it works ?
         </h3>
         <p>
-          ETHMap displays a world map with 178 countries (<i>zones</i>). Each zone is initially sold at a price related to its area.
-          Once you own a zone, you will earn some Ether every time someone else buy it. The amount the new owner paid is splitted
-          between all zone's owners, minus a small fee for ETHMap. Zone's price is then increased by 2.5%.
+          ETHMap displays a world map with 178 countries (<i>"zone"</i>). Each zone is initially sold at a price related to its area.
+          If the zone is available, you can purchase it at the price fixed by the current zone owner. You are now the new owner of this zone !
         </p>
         <p>
-          ETHMap runs on the Ethereum blockchain. This imply you can read the <a href="">Smart Contract</a> that set above rules.
+          Once you own a zone, you may sell it for a price of your own choosing. Your zone is then on sale and can be bought by anyone willing
+          to pay the amount you fixed. You will be credited of the amount (minus 2% fee for ETHMap) and the buyer is now the new owner of this zone.
         </p>
         <h3 class="ui header">
           What do I need ?
