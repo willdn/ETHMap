@@ -12,7 +12,7 @@ contract('ETHMap', (accounts) => {
     return ETHMap.new()
       .then((instance) => {
         APP = instance
-        return APP.buyZone(5, { from: account1, value: 1400000000000000 })
+        return APP.buyZone(5, { from: account1, value: 2900000000000000 })
       })
       .catch((error) => {
         assert.equal(error.message, 'VM Exception while processing transaction: invalid opcode')
@@ -24,7 +24,7 @@ contract('ETHMap', (accounts) => {
     return ETHMap.new()
       .then((instance) => {
         APP = instance
-        APP.buyZone(5, { from: account1, value: 1500000000000000 })
+        APP.buyZone(5, { from: account1, value: 3000000000000000 })
         return APP.getZone(5)
       })
       .then((res) => {
@@ -37,7 +37,7 @@ contract('ETHMap', (accounts) => {
     return ETHMap.new()
       .then((instance) => {
         APP = instance
-        APP.buyZone(5, { from: account1, value: 1500000000000000 })
+        APP.buyZone(5, { from: account1, value: 3000000000000000 })
         return APP.buyZone(5, { from: account2, value: 2000000000000000 })
       })
       .catch((error) => {
@@ -50,9 +50,9 @@ contract('ETHMap', (accounts) => {
     return ETHMap.new()
       .then((instance) => {
         APP = instance
-        APP.buyZone(5, { from: account1, value: 1500000000000000 })
+        APP.buyZone(5, { from: account1, value: 3000000000000000 })
         // account1 sell his zone
-        APP.sell(5, 2000000000000000, { from: account1 })
+        APP.sellZone(5, 2000000000000000, { from: account1 })
         // account2 buy the zone
         return APP.buyZone(5, { from: account2, value: 1500000000000000 })
       })
@@ -66,15 +66,58 @@ contract('ETHMap', (accounts) => {
     return ETHMap.new()
       .then((instance) => {
         APP = instance
-        APP.buyZone(5, { from: account1, value: 1500000000000000 })
+        APP.buyZone(5, { from: account1, value: 3000000000000000 })
         // account1 sell his zone
-        APP.sell(5, 2000000000000000, { from: account1 })
+        APP.sellZone(5, 2000000000000000, { from: account1 })
         // account2 buy the zone
         APP.buyZone(5, { from: account2, value: 2000000000000000 })
         return APP.getZone(5)
       })
       .then((res) => {
         assert.equal(res[1], account2)
+      })
+  })
+
+  it('should fail to xfer zone not owner', () => {
+    let APP
+    return ETHMap.new()
+      .then((instance) => {
+        APP = instance
+        APP.buyZone(5, { from: account1, value: 3000000000000000 })
+        return APP.transferZone(5, account2 , { from: account2 })
+      })
+      .catch((error) => {
+        assert.equal(error.message, 'VM Exception while processing transaction: invalid opcode')
+        return APP.transferZone(178, account2 , { from: account2 })
+      })
+      .catch((error) => {
+        assert.equal(error.message, 'VM Exception while processing transaction: invalid opcode')
+      })
+  })
+
+  it('should xfer zone', () => {
+    let APP
+    return ETHMap.new()
+      .then((instance) => {
+        APP = instance
+        APP.buyZone(5, { from: account1, value: 3000000000000000 })
+        APP.transferZone(5, account2, { from: account1 })
+        return APP.getZone(5)
+      })
+      .then((res) => {
+        assert.equal(res[1], account2)
+      })
+  })
+
+  it('should fail to change owner address', () => {
+    let APP
+    return ETHMap.new()
+      .then((instance) => {
+        APP = instance
+        return APP.transferContractOwnership(account1, { from: account1 })
+      })
+      .catch((error) => {
+        assert.equal(error.message, 'VM Exception while processing transaction: invalid opcode')
       })
   })
 

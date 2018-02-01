@@ -27,6 +27,13 @@ contract ETHMap {
       contractOwner = msg.sender;
     }
 
+    modifier onlyContractOwner()
+    {
+       // Throws if called by any account other than the contract owner
+        require(msg.sender == contractOwner);
+        _;
+    }
+
     modifier onlyValidZone(uint zoneId)
     {
        // Throws if zone id is not valid
@@ -129,6 +136,15 @@ contract ETHMap {
         uint amount = pendingWithdrawals[msg.sender];
         pendingWithdrawals[msg.sender] = 0;
         msg.sender.transfer(amount);
+        return true;
+    }
+
+    /// Allow contract owner to change address
+    function transferContractOwnership(address newOwner) public
+        onlyContractOwner()
+        returns (bool success) 
+    {
+        contractOwner = newOwner;
         return true;
     }
 
