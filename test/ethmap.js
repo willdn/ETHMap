@@ -121,4 +121,29 @@ contract('ETHMap', (accounts) => {
       })
   })
 
+  it('should correctly distribute amount', () => {
+    let APP
+    return ETHMap.new()
+      .then((instance) => {
+        APP = instance
+        APP.buyZone(5, { from: account1, value: 3000000000000000 })
+        APP.buyZone(6, { from: account1, value: 3500000000000000 })
+        APP.buyZone(7, { from: account1, value: 4000000000000000 })
+        APP.sellZone(5, 1000000000000000000 , { from: account1 }) // Sell for 1 ETH
+        APP.sellZone(6, 1000000000000000000 , { from: account1 }) // Sell for 1 ETH
+        APP.buyZone(5, { from: account2, value: 1000000000000000000 })
+        APP.buyZone(6, { from: account2, value: 1000000000000000000 })
+        return APP.getBalance({ from: account1 })
+      })
+      .then((res) => {
+        // (1000000000000000000 * 0.98) * 2
+        assert.equal(res.toNumber(), 1960000000000000000)
+        return APP.getBalance({ from: owner })
+      })
+      .then((res) => {
+        // 3000000000000000 + 3500000000000000 + 4000000000000000 + (1000000000000000000 * 0.02) * 2
+        assert.equal(res.toNumber(), 50500000000000000)
+      })
+  })
+
 })
