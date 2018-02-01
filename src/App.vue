@@ -57,7 +57,7 @@ export default {
   name: 'app',
   data () {
     return {
-      network: 'ropsten'
+      network: 'live'
     }
   },
   methods: {

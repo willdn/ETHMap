@@ -17,7 +17,7 @@
           the owner of each zone. Instead, zone ownership is recorded on the Ethereum blockchain and thus, cannot be tampered by anyone.
         </p>
         <p>
-          You can have a look at the <a target="_blank" href="">Smart Contract</a>.
+          You can have a look at the <a target="_blank" href="https://etherscan.io/address/0xb6bbf89c3dbba20cb4d5cabaa4a386acbbab455e">Smart Contract</a>.
         </p>
         <h3 class="ui header">
           How it works ?
