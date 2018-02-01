@@ -47,6 +47,15 @@ export const transactionDenied = (erorMessage) => {
   }
 }
 
+export const transactionPending = (erorMessage) => {
+  if (erorMessage.includes('Transaction was not mined within 50 blocks')) {
+    add({
+      color: 'yellow',
+      message: `Transaction still pending, please check Etherscan and refresh page`
+    })
+  }
+}
+
 export const zoneBought = (zone) => {
   add({
     color: 'green',

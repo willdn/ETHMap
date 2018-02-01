@@ -179,6 +179,7 @@ export default {
         .catch((err) => {
           if (err) {
             notif.transactionDenied(err.message)
+            notif.transactionPending(err.message)
             this.txWait = false
             console.log(err.message)
           }
@@ -202,6 +203,7 @@ export default {
         .catch((err) => {
           if (err) {
             notif.transactionDenied(err.message)
+            notif.transactionPending(err.message)
             this.txWait = false
             console.log(err.message)
           }
@@ -224,6 +226,7 @@ export default {
         .catch((err) => {
           if (err) {
             notif.transactionDenied(err.message)
+            notif.transactionPending(err.message)
             this.txWait = false
             console.log(err.message)
           }

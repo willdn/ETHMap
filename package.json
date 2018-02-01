@@ -1,7 +1,7 @@
 {
-  "name": "front",
+  "name": "ETHMap",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "ETHMap is a Decentralized Application running on Ethereum blockchain.",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

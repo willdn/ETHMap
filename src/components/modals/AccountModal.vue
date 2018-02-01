@@ -30,14 +30,8 @@
               </span>
             </div>
           </div>
-          <div class="row">
-            <div class="column">
-              <b>Zones</b>
-            </div>
-            <div class="column right aligned">{{ zonesOwned.length }}</div>
-          </div>
         </div>
-        <h4 class="ui header">Zones</h4>
+        <h4 class="ui header">Zones <small>({{ zonesOwned.length }})</small></h4>
         <!-- No zones -->
         <div v-if="zonesOwned.length === 0" class="ui segment raised center aligned">
           No zones bought yet
@@ -130,6 +124,7 @@ export default {
         .catch((err) => {
           console.log(err.message)
           notif.transactionDenied(err.message)
+          notif.transactionPending(err.message)
         })
     },
     closeModal () {

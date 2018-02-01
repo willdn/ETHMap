@@ -1,6 +1,15 @@
 <template>
   <div>
+    <!-- Loader -->
     <loader v-if="!mapLoaded" />
+    <!-- Wrong network -->
+    <div class="ui container">
+      <div v-if="networkUnknown" class="ui segment center aligned raised"
+           style="margin-top: 1em;">
+        Select <b>Main Network</b> in MetaMask
+      </div>
+    </div>
+    <!-- Map -->
     <div id="map"></div>
   </div>
 </template>
@@ -19,7 +28,6 @@ export default {
   },
   data () {
     return {
-      mapLoaded: false,
       selectedZone: null,
       zonesListID: []
     }
@@ -45,6 +53,12 @@ export default {
     },
     zonesBought () {
       return this.zones.filter(z => z.isBought())
+    },
+    mapLoaded () {
+      return this.$store.getters.mapLoaded
+    },
+    networkUnknown () {
+      return this.$store.getters.networkUnknown
     }
   },
   methods: {
@@ -108,7 +122,7 @@ export default {
           return { path: path, projection: projection }
         },
         done (datamap) {
-          that.mapLoaded = true
+          that.$store.dispatch('setMapLoaded', true)
           datamap.svg.call(d3.behavior.zoom().on('zoom', redraw))
           function redraw () {
             // Scale
