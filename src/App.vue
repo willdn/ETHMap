@@ -30,13 +30,11 @@ import config from './config'
 import Web3 from 'web3'
 
 const networkConfig = {
-  /*
   'live': {
     networkId: 1,
-    contractAddress: config.contractAddressMain,
+    contractAddress: config.contractAddressLive,
     fallback: `https://mainnet.infura.io/${config.infuraAPIKey}`
   },
-  */
   'ropsten': {
     networkId: 3,
     contractAddress: config.contractAddressRopsten,
@@ -59,7 +57,7 @@ export default {
   name: 'app',
   data () {
     return {
-      network: 'ropsten'
+      network: 'live'
     }
   },
   methods: {

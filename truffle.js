@@ -2,7 +2,7 @@ var ganache = require('ganache-cli')
 var HDWalletProvider = require('truffle-hdwallet-provider')
 var dotenv = require('dotenv').config()
 
-var infuraKey = 'ZAG8Wc8qPxdO3cfopRgd'
+var infuraKey = 'UIWcVZuPtuXHpAFglFyd'
 var mnemonic = dotenv.parsed.PASSPHRASE
 
 module.exports = {
@@ -12,6 +12,12 @@ module.exports = {
     network_id: '*' // Match any network id
   },
   networks: {
+    live: {
+      provider: new HDWalletProvider(mnemonic, "https://mainnet.infura.io/" + infuraKey, 0),
+      network_id: 1,
+      gasPrice: '22000000000',
+      gas: '2000000'
+    },
     development: {
       host: 'localhost',
       port: 8545,
