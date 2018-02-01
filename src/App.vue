@@ -108,7 +108,8 @@ export default {
         })
         .catch((err) => {
           // Most certainly because on wrong network
-          // this.$store.dispatch('setNetworkUnknown', true)
+          this.$store.dispatch('setNetworkUnknown', true)
+          this.$store.dispatch('setMapLoaded', true)
           console.log(err.message)
           return err
         })
