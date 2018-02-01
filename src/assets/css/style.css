@@ -1,0 +1,59 @@
+#app {
+  /* display: flex !important; */
+  min-height: 100vh !important;
+  /* flex-direction: column !important; */
+}
+
+/* #app-content {
+  flex: 1 !important;
+} */
+
+body {
+  background-color: rgba(218, 218, 218, 0.50) !important;
+}
+
+a {
+  color: rgba(230, 57, 70, 0.9) !important;
+}
+
+a:hover {
+  color: rgba(230, 57, 70, 0.6) !important;
+}
+
+b {
+  font-weight: bold;
+}
+
+.sub.header {
+  text-transform: none !important;
+  font-size: 0.55em !important;
+}
+
+div [class*="right floated"] {
+  float: right;
+  margin-right: 0.25em;
+} 
+
+div.nav-tabs-navigation {
+  margin-bottom: 1.5em !important;
+}
+
+/* Icons */
+.fa {
+  margin-right: 0.25em !important;
+}
+
+
+.ui.green.button:hover {
+  background-color: rgba(33, 186, 69, 0.75) !important;
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+  background-image: none !important;
+}
+
+.ui.red.button:hover {
+  background-color: rgba(219, 40, 40, 0.75) !important;
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+  background-image: none !important;
+}
