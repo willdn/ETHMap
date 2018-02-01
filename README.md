@@ -1,6 +1,6 @@
 # ETHMap
 
-ETHMap is a Decentralized Applications (ÐApps) running on Ethereum blockchain.
+ETHMap is a Decentralized Application (ÐApp) running on Ethereum blockchain.
 
 ## Build Setup
 

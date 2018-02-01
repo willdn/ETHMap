@@ -13,7 +13,7 @@
           What is ETHMap ?
         </h3>
         <p>
-          ETHMap is a Decentralized Applications (ÐApps) running on Ethereum blockchain. This means ETHMap don't use a regular database to store
+          ETHMap is a Decentralized Application (ÐApp) running on Ethereum blockchain. This means ETHMap don't use a regular database to store
           the owner of each zone. Instead, zone ownership is recorded on the Ethereum blockchain and thus, cannot be tampered by anyone.
         </p>
         <p>
