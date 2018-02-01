@@ -130,6 +130,7 @@ export default {
         .catch((err) => {
           console.log(err.message)
           notif.transactionDenied(err.message)
+          notif.transactionPending(err.message)
         })
     },
     closeModal () {
